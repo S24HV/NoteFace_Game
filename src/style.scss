@@ -1,0 +1,523 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&display=swap");
+
+:root {
+  --red: #d92727;
+  --red-bright: #f13a32;
+  --text: #ded9d6;
+  --muted: rgba(210, 205, 202, 0.55);
+  --dark: rgba(10, 9, 10, 0.88);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+  background: #000;
+}
+
+/* =========================
+   MAIN MENU
+========================= */
+
+.main-menu {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+
+.menu-bg {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  user-select: none;
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+.menu-content {
+  position: absolute;
+
+  z-index: 5;
+
+  left: 18%;
+  top: 50%;
+
+  width: 270px;
+
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.game-logo {
+  width: 100%;
+
+  margin-bottom: 52px;
+
+  color: #f1eeeb;
+
+  text-align: center;
+
+  font-family:
+    "Caveat",
+    "Segoe Print",
+    "Bradley Hand",
+    cursive;
+
+  font-size: clamp(62px, 5.2vw, 88px);
+
+  font-weight: 500;
+  font-style: italic;
+
+  line-height: 0.72;
+
+  letter-spacing: -3px;
+
+  transform: rotate(-4deg);
+
+  text-shadow:
+    2px 2px 0 rgba(0, 0, 0, 0.4);
+
+  user-select: none;
+}
+
+.game-logo span {
+  display: block;
+}
+
+.game-logo span:last-child {
+  margin-left: 25px;
+  margin-top: 13px;
+}
+
+/* =========================
+   MENU BUTTONS
+========================= */
+
+.menu-items {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 5px;
+}
+
+.menu-item {
+  position: relative;
+
+  width: 100%;
+
+  padding: 5px 0;
+
+  border: 0;
+  outline: none;
+
+  background: transparent;
+
+  color: var(--muted);
+
+  cursor: pointer;
+
+  text-align: center;
+
+  font-family:
+    "Caveat",
+    "Segoe Print",
+    cursive;
+
+  font-size: clamp(24px, 2vw, 29px);
+
+  font-weight: 500;
+  font-style: italic;
+
+  line-height: 1.15;
+
+  letter-spacing: 0.2px;
+
+  transition:
+    color 0.15s ease,
+    transform 0.15s ease,
+    text-shadow 0.15s ease;
+}
+
+.menu-item:hover {
+  color: #bcb7b4;
+}
+
+.menu-item.active {
+  color: var(--red-bright);
+
+  transform: translateX(5px);
+
+  text-shadow:
+    0 0 8px rgba(217, 39, 39, 0.35);
+}
+
+.menu-item.active::before {
+  content: "";
+
+  position: absolute;
+
+  left: -16px;
+  top: 50%;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--red-bright);
+
+  transform: translateY(-50%);
+
+  box-shadow:
+    0 0 7px rgba(217, 39, 39, 0.45);
+}
+
+/* =========================
+   SUB SCREENS
+========================= */
+
+.sub-screen {
+  position: relative;
+
+  width: 100vw;
+  height: 100vh;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #292426 0%,
+      #111 70%
+    );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sub-panel {
+  position: relative;
+
+  width: min(650px, 90vw);
+
+  padding: 50px;
+
+  background: var(--dark);
+
+  border-left: 3px solid var(--red);
+
+  box-shadow:
+    0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+.sub-title {
+  margin: 0 0 35px;
+
+  color: #eee;
+
+  font-family:
+    "Caveat",
+    "Segoe Print",
+    cursive;
+
+  font-size: 52px;
+
+  font-weight: 500;
+  font-style: italic;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+/* =========================
+   LEVEL SELECT
+========================= */
+
+.level-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  margin-bottom: 30px;
+}
+
+.level-item {
+  display: flex;
+
+  width: 100%;
+
+  padding: 15px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.08);
+
+  background: rgba(255, 255, 255, 0.025);
+
+  color: var(--text);
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.level-item:hover {
+  background: rgba(217, 39, 39, 0.08);
+
+  border-color: var(--red);
+
+  transform: translateX(5px);
+}
+
+.level-number {
+  width: 55px;
+
+  color: var(--red-bright);
+
+  font-family:
+    "Caveat",
+    cursive;
+
+  font-size: 32px;
+}
+
+.level-info {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.level-info strong {
+  font-family:
+    "Caveat",
+    cursive;
+
+  font-size: 27px;
+
+  font-weight: 500;
+}
+
+.level-info small {
+  color: var(--muted);
+
+  font-family:
+    "Segoe UI",
+    sans-serif;
+
+  font-size: 12px;
+}
+
+/* =========================
+   SETTINGS
+========================= */
+
+.settings-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 28px;
+
+  margin-bottom: 35px;
+}
+
+.setting {
+  width: 100%;
+}
+
+.setting-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 8px;
+
+  color: var(--text);
+
+  font-family:
+    "Caveat",
+    cursive;
+
+  font-size: 25px;
+}
+
+.setting input[type="range"] {
+  width: 100%;
+
+  accent-color: var(--red);
+}
+
+/* =========================
+   TOGGLE
+========================= */
+
+.toggle-setting {
+  display: flex;
+
+  justify-content: space-between;
+
+  width: 100%;
+
+  padding: 12px 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: var(--text);
+
+  cursor: pointer;
+
+  font-family:
+    "Caveat",
+    cursive;
+
+  font-size: 25px;
+}
+
+.toggle {
+  color: var(--muted);
+}
+
+.toggle.active {
+  color: var(--red-bright);
+}
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back-button,
+.red-button {
+  border: 1px solid var(--red);
+
+  padding: 9px 22px;
+
+  background: transparent;
+
+  color: var(--red-bright);
+
+  cursor: pointer;
+
+  font-family:
+    "Caveat",
+    cursive;
+
+  font-size: 24px;
+
+  font-style: italic;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.back-button:hover,
+.red-button:hover {
+  background: var(--red);
+
+  color: #fff;
+
+  transform: translateX(4px);
+}
+
+/* =========================
+   GAME PLACEHOLDER
+========================= */
+
+.game-placeholder {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 25px;
+
+  background: #080808;
+
+  color: white;
+}
+
+.game-placeholder h1 {
+  margin: 0;
+
+  color: var(--red-bright);
+
+  font-family:
+    "Caveat",
+    cursive;
+
+  font-size: 70px;
+
+  font-style: italic;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+  .menu-content {
+    left: 25%;
+    width: 240px;
+  }
+
+  .game-logo {
+    font-size: 65px;
+  }
+
+  .sub-panel {
+    padding: 30px;
+  }
+
+  .sub-title {
+    font-size: 42px;
+  }
+}
